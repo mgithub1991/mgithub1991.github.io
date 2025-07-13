@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himanshi More - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // New Accent Color
+              mscolor: {
+                light: "#6ee7b7",
+                DEFAULT: "#10b981",
+                dark: "#059669",
+              },
+              // New Dark Theme Palette
+              msdark: {
+                light: "#374151",  // Lighter gray for cards/borders
+                DEFAULT: "#1f2937", // Main dark color for cards
+                dark: "#111827",   // Main background
+              },
+            },
+            fontFamily: {
+              sans: ["Segoe UI", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .section-transition {
+        transition: all 0.5s ease-in-out;
+      }
+      .skill-pill {
+        transition: transform 0.3s ease;
+      }
+      .skill-pill:hover {
+        transform: translateY(-5px);
+      }
+      .experience-item {
+        position: relative;
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
+      }
+      .experience-item:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body class="bg-msdark-dark font-sans text-gray-300" id="cvBody">
+    <div
+      id="loading-screen"
+      class="fixed inset-0 flex items-center justify-center bg-msdark-dark z-50"
+    >
+      <div class="flex flex-col items-center">
+        <div
+          class="w-16 h-16 border-4 border-mscolor border-t-transparent rounded-full animate-spin"
+        ></div>
+        <p class="mt-4 text-mscolor font-semibold">Loading Portfolio...</p>
+      </div>
+    </div>
+
+    <nav
+      id="navbar"
+      class="fixed top-0 w-full bg-msdark-DEFAULT/90 backdrop-blur-sm shadow-lg z-40 transition-all duration-300"
+    >
+      <div class="container mx-auto px-4 md:px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div
+              class="h-10 w-10 rounded-full bg-mscolor flex items-center justify-center text-white font-bold text-lg"
+            >
+              HM
+            </div>
+            <div class="ml-3">
+              <h1 class="text-lg font-bold text-gray-100" id="nav-name">
+                Loading...
+              </h1>
+              <p class="text-sm text-gray-400 hidden md:block" id="nav-title">
+                Loading...
+              </p>
+            </div>
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#about" class="nav-link text-gray-300 hover:text-mscolor-light transition">About</a>
+            <a href="#skills" class="nav-link text-gray-300 hover:text-mscolor-light transition">Skills</a>
+            <a href="#experience" class="nav-link text-gray-300 hover:text-mscolor-light transition">Experience</a>
+            <a href="#education" class="nav-link text-gray-300 hover:text-mscolor-light transition">Education</a>
+            <a href="#certifications" class="nav-link text-gray-300 hover:text-mscolor-light transition">Certifications</a>
+            <a href="#contact" class="nav-link text-gray-300 hover:text-mscolor-light transition">Contact</a>
+          </div>
+          <div class="md:hidden">
+            <button id="menu-toggle" class="text-gray-100 focus:outline-none">
+              <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden bg-msdark-DEFAULT pb-4 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col space-y-3">
+          <a href="#about" class="mobile-nav-link py-2 text-gray-300 hover:text-mscolor-light transition">About</a>
+          <a href="#skills" class="mobile-nav-link py-2 text-gray-300 hover:text-mscolor-light transition">Skills</a>
+          <a href="#experience" class="mobile-nav-link py-2 text-gray-300 hover:text-mscolor-light transition">Experience</a>
+          <a href="#education" class="mobile-nav-link py-2 text-gray-300 hover:text-mscolor-light transition">Education</a>
+          <a href="#certifications" class="mobile-nav-link py-2 text-gray-300 hover:text-mscolor-light transition">Certifications</a>
+          <a href="#contact" class="mobile-nav-link py-2 text-gray-300 hover:text-mscolor-light transition">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-16">
+      <section
+        id="hero"
+        class="relative bg-gradient-to-r from-mscolor to-mscolor-dark text-white py-20 md:py-32"
+      >
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto">
+            <div class="md:w-3/5 text-center md:text-left mb-10 md:mb-0">
+              <h1 id="hero-name" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                Loading...
+              </h1>
+              <p id="hero-title" class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl">
+                Loading...
+              </p>
+              <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+                <a href="#contact" class="bg-white text-mscolor-dark px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition flex items-center">
+                  <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                  Contact Me
+                </a>
+                <a id="linkedin-link" href="#" target="_blank" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-mscolor-dark transition flex items-center">
+                  <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i>
+                  LinkedIn
+                </a>
+              </div>
+              <div id="hero-location" class="flex items-center justify-center md:justify-start">
+                <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
+                <span>Loading...</span>
+              </div>
+            </div>
+            <div class="md:w-2/5 flex justify-center md:justify-end">
+              <div class="w-64 h-64 md:w-80 md:h-80 bg-white/10 rounded-full flex items-center justify-center border-4 border-white/20 relative overflow-hidden">
+                <div class="absolute inset-3 bg-white/10 rounded-full flex items-center justify-center">
+                  <img id="hero-image" src="hero.jpg" alt="Avatar" class="rounded-full object-cover w-full h-full" />
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
+                <div class="absolute -top-6 -left-6 w-16 h-16 bg-white/10 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="#111827">
+            <path d="M0,100 L1440,100 L1440,60 C1320,40 1200,30 1080,20 C960,10 840,0 720,0 C600,0 480,10 360,20 C240,30 120,40 0,60 L0,100 Z"></path>
+          </svg>
+        </div>
+      </section>
+
+      <section id="about" class="py-16 bg-msdark-dark">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="section-header mb-12 text-center">
+              <h2 class="text-3xl font-bold text-gray-100 mb-2">About Me</h2>
+              <div class="h-1 w-20 bg-mscolor mx-auto"></div>
+            </div>
+            <div class="bg-msdark-DEFAULT shadow-lg rounded-lg p-6 md:p-8">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3 flex justify-center items-center">
+                   <div class="h-64 w-64 bg-msdark-light rounded-full flex items-center justify-center text-gray-500">
+                    <img id="about-image" src="profile.jpg" alt="Avatar" class="rounded-full object-cover w-full h-full" />
+                  </div>
+                </div>
+                <div class="md:w-2/3">
+                  <h3 class="text-2xl font-bold text-mscolor-light mb-4">
+                    Professional Summary
+                  </h3>
+                  <p id="summary" class="text-gray-300 mb-6 leading-relaxed">
+                    Loading...
+                  </p>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                      <i data-lucide="mail" class="w-5 h-5 text-mscolor-light mr-3 mt-1"></i>
+                      <div>
+                        <h4 class="text-sm text-gray-400 mb-1">Email</h4>
+                        <p id="email" class="font-medium text-gray-200">Loading...</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i data-lucide="phone" class="w-5 h-5 text-mscolor-light mr-3 mt-1"></i>
+                      <div>
+                        <h4 class="text-sm text-gray-400 mb-1">Phone</h4>
+                        <p id="phone" class="font-medium text-gray-200">Loading...</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i data-lucide="map-pin" class="w-5 h-5 text-mscolor-light mr-3 mt-1"></i>
+                      <div>
+                        <h4 class="text-sm text-gray-400 mb-1">Location</h4>
+                        <p id="location" class="font-medium text-gray-200">Loading...</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i data-lucide="linkedin" class="w-5 h-5 text-mscolor-light mr-3 mt-1"></i>
+                      <div>
+                        <h4 class="text-sm text-gray-400 mb-1">LinkedIn</h4>
+                        <p id="linkedin" class="font-medium text-gray-200">Loading...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="py-16 bg-msdark-DEFAULT">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="section-header mb-12 text-center">
+              <h2 class="text-3xl font-bold text-gray-100 mb-2">
+                Skills & Expertise
+              </h2>
+              <div class="h-1 w-20 bg-mscolor mx-auto"></div>
+            </div>
+
+            <div class="bg-msdark-dark rounded-lg p-6 shadow-md">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-mscolor text-white rounded-lg flex items-center justify-center mr-4">
+                  <i data-lucide="code" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-100">Top Skills</h3>
+              </div>
+              <div id="top-skills" class="flex flex-wrap gap-2"></div>
+
+              <div class="mt-8">
+                <h4 class="text-lg font-semibold mb-4 text-gray-200">
+                  Professional Skills
+                </h4>
+                <div class="space-y-4">
+                  <div>
+                    <div class="flex justify-between mb-1 text-gray-300"><span class="font-medium">Power BI & DAX</span><span>9/10</span></div>
+                    <div class="w-full bg-msdark-light rounded-full h-2"><div class="bg-mscolor h-2 rounded-full" style="width: 90%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1 text-gray-300"><span class="font-medium">SQL</span><span>8.5/10</span></div>
+                    <div class="w-full bg-msdark-light rounded-full h-2"><div class="bg-mscolor h-2 rounded-full" style="width: 85%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1 text-gray-300"><span class="font-medium">Data Analysis & Visualization</span><span>9/10</span></div>
+                    <div class="w-full bg-msdark-light rounded-full h-2"><div class="bg-mscolor h-2 rounded-full" style="width: 90%"></div></div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between mb-1 text-gray-300"><span class="font-medium">Advanced Excel</span><span>8/10</span></div>
+                    <div class="w-full bg-msdark-light rounded-full h-2"><div class="bg-mscolor h-2 rounded-full" style="width: 80%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="py-16 bg-msdark-dark">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="section-header mb-12 text-center">
+              <h2 class="text-3xl font-bold text-gray-100 mb-2">Work Experience</h2>
+              <div class="h-1 w-20 bg-mscolor mx-auto"></div>
+            </div>
+            <div id="experience-container" class="space-y-6"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="py-16 bg-msdark-DEFAULT">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="section-header mb-12 text-center">
+              <h2 class="text-3xl font-bold text-gray-100 mb-2">Education</h2>
+              <div class="h-1 w-20 bg-mscolor mx-auto"></div>
+            </div>
+            <div id="education-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="certifications" class="py-16 bg-msdark-dark">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="section-header mb-12 text-center">
+              <h2 class="text-3xl font-bold text-gray-100 mb-2">Certifications & Awards</h2>
+              <div class="h-1 w-20 bg-mscolor mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center text-gray-200">
+                  <i data-lucide="award" class="w-6 h-6 text-mscolor-light mr-2"></i>Certifications
+                </h3>
+                <div id="certifications-container" class="bg-msdark-DEFAULT rounded-lg shadow-md p-6 space-y-4"></div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center text-gray-200">
+                  <i data-lucide="trophy" class="w-6 h-6 text-mscolor-light mr-2"></i>Awards
+                </h3>
+                <div id="awards-container" class="bg-msdark-DEFAULT rounded-lg shadow-md p-6 space-y-4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-16 bg-msdark-DEFAULT">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="section-header mb-12 text-center">
+              <h2 class="text-3xl font-bold text-gray-100 mb-2">Contact Me</h2>
+              <div class="h-1 w-20 bg-mscolor mx-auto"></div>
+            </div>
+            <div class="bg-msdark-dark rounded-lg shadow-lg overflow-hidden">
+              <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="p-6 md:p-8 bg-mscolor text-white">
+                  <h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
+                  <p class="mb-8 opacity-90">Feel free to reach out for opportunities, collaborations, or just to say hello!</p>
+                  <div class="space-y-6">
+                    <div class="flex items-start"><div class="bg-white/20 p-3 rounded-full mr-4"><i data-lucide="mail" class="w-6 h-6"></i></div><div><h4 class="text-lg font-semibold">Email</h4><p id="contact-email">Loading...</p></div></div>
+                    <div class="flex items-start"><div class="bg-white/20 p-3 rounded-full mr-4"><i data-lucide="phone" class="w-6 h-6"></i></div><div><h4 class="text-lg font-semibold">Phone</h4><p id="contact-phone">Loading...</p></div></div>
+                    <div class="flex items-start"><div class="bg-white/20 p-3 rounded-full mr-4"><i data-lucide="map-pin" class="w-6 h-6"></i></div><div><h4 class="text-lg font-semibold">Location</h4><p id="contact-location">Loading...</p></div></div>
+                    <div class="flex items-start"><div class="bg-white/20 p-3 rounded-full mr-4"><i data-lucide="linkedin" class="w-6 h-6"></i></div><div><h4 class="text-lg font-semibold">LinkedIn</h4><a id="contact-linkedin" href="#" target="_blank" class="hover:underline">Loading...</a></div></div>
+                  </div>
+                </div>
+                <div class="p-6 md:p-8 bg-msdark-DEFAULT">
+                  <h3 class="text-2xl font-bold mb-6 text-gray-100">Send a Message</h3>
+                  <form action="YOUR_FORMSPREE_URL" method="POST" class="space-y-4">
+                    <div><label for="name" class="block text-sm font-medium text-gray-400 mb-1">Your Name</label><input type="text" id="name" name="name" class="w-full px-4 py-2 bg-msdark-light border border-gray-600 rounded-lg focus:ring-2 focus:ring-mscolor focus:border-mscolor transition" required /></div>
+                    <div><label for="email" class="block text-sm font-medium text-gray-400 mb-1">Your Email</label><input type="email" id="email-input" name="email" class="w-full px-4 py-2 bg-msdark-light border border-gray-600 rounded-lg focus:ring-2 focus:ring-mscolor focus:border-mscolor transition" required /></div>
+                    <div><label for="subject" class="block text-sm font-medium text-gray-400 mb-1">Subject</label><input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-msdark-light border border-gray-600 rounded-lg focus:ring-2 focus:ring-mscolor focus:border-mscolor transition" required /></div>
+                    <div><label for="message" class="block text-sm font-medium text-gray-400 mb-1">Message</label><textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-msdark-light border border-gray-600 rounded-lg focus:ring-2 focus:ring-mscolor focus:border-mscolor transition" required></textarea></div>
+                    <button type="submit" class="w-full bg-mscolor text-white py-3 px-6 rounded-lg hover:bg-mscolor-dark transition-all flex items-center justify-center font-semibold">
+                      <i data-lucide="send" class="w-5 h-5 mr-2"></i>Send Message
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-msdark-dark text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col md:flex-row items-center justify-between">
+            <div>
+              <h3 id="footer-name" class="text-xl font-bold text-gray-100">Loading...</h3>
+              <p id="footer-title" class="text-gray-400">Data Analyst</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-mscolor-light transition" id="email-link" aria-label="Email"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                <a href="#" class="text-gray-400 hover:text-mscolor-light transition" id="linkedin-footer-link" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                <a href="#" class="text-gray-400 hover:text-mscolor-light transition" id="phone-link" aria-label="Phone"><i data-lucide="phone" class="w-6 h-6"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-500">
+            <p>© <span id="current-year"></span> All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide Icons
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      } else {
+        console.error("Lucide library not loaded properly");
+        document.addEventListener("DOMContentLoaded", () => lucide.createIcons());
+      }
+
+      const portfolioData = {
+        personalInfo: {
+          name: "Himanshi More",
+          location: "Mumbai, Maharashtra, India",
+          contact: {
+            address: "Mumbai, Maharashtra, India",
+            phone: "Not Provided",
+            email: "more.himanshi@gmail.com",
+            linkedin: "linkedin.com/in/himanshim63040b178/",
+          },
+          title: "Power BI || DAX || SQL || Advanced Excel || Data Visualization || Data analyst.",
+        },
+        summary: "As a data analyst with a total of 4+ years of experience, I have the ability to analyze patterns and trends in large data sets. I am skilled in data cleaning, data visualization, statistical analysis, and data modeling. My strong analytical skills and attention to detail enable me to identify areas for improvement and implement effective solutions. I have experience in analytical tools such as Power BI and Excel for data visualization and also have experience working with SQL databases.",
+        skills: {
+          topSkills: ["Power bi", "Data Modeling", "Data Analysis", "SQL", "DAX", "Advanced Excel"],
+        },
+        certifications: [
+            "<a href='https://learn.microsoft.com/en-us/credentials/certifications/power-bi-data-analyst-associate/' target='_blank'>Microsoft Certified: Power BI Data Analyst Associate (PL-300)</a>",
+            "<a href='https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/' target='_blank'>Microsoft Certified: Azure Data Fundamentals (DP-900)</a>"
+        ],
+        awards: [
+            "Advanced SQL Certification from Udemy",
+            "Advanced Power Bi Certification from Udemy",
+            "Power Bi Service Certification from Udemy"
+        ],
+        workExperience: [
+          {
+            company: "Credenca Data Solutions Private Limited",
+            position: "Power BI Developer",
+            duration: "March 2024 - Present",
+            location: "Pune, Maharashtra, India",
+            responsibilities: [
+                "Currently contributing as a Power BI Developer, focusing on creating dynamic and insightful data solutions.",
+                "Developed and maintained Power BI dashboards and reports for multiple clients across various industries." ,
+                "Created complex DAX calculations and measures for advanced analytics and KPI tracking." ,
+                "Performed data extraction, transformation, and loading (ETL) using Power Query Editor from multiple data sources." ,
+                "Designed efficient data models and established relationships between tables for optimal performance." ,
+                "Collaborated with stakeholders to gather business requirements and translate them into technical solutions." ,
+                "Implemented row-level security (RLS) and user access controls for data governance." ,
+                "Optimized dashboard performance and configured automated data refresh schedules." ,
+                "Provided training and support to end-users on Power BI functionality and best practices." ,
+                "Conducted quality assurance testing to ensure data accuracy and report reliability." ,
+                "Stayed updated with latest Power BI features and implemented process improvements."
+            ],
+          },
+          {
+            company: "eClerx",
+            position: "Senior Data Analyst",
+            duration: "September 2021 - June 2023 (1 year 10 months)",
+            location: "Navi Mumbai, Maharashtra, India",
+            responsibilities: [
+              "Created interactive and highly informative Power BI reports using advanced DAX features.",
+              "Responsible for performing data analytics and generating insights as per business requirements.",
+              "Experienced in developing Power Bi reports and dashboard from multiple data sources.",
+              "Used Power Query Editor for data cleaning and preparation.",
+              "Created different visualization in the reports using custom visuals like Bar Charts, Pie Charts, Line Charts, Card, Slicers etc.",
+              "Set up Power BI online service, schedule refresh and configure gateways.",
+              "Expert in Power Query editor and DAX.",
+              "Experience in setting up security e.g. roles, groups and row level security.",
+              "Used Power BI Gateway to keep the dashboard and reports up to date.",
+            ],
+          },
+          {
+            company: "ITM Business School Kharghar",
+            position: "Sr.MIS Executive",
+            duration: "March 2019 - September 2020 (1 year 7 months)",
+            location: "Mumbai Area, India",
+            responsibilities: [
+              "Preparing & maintaining MIS reports of internship & placements.",
+              "Co-ordinating with the placement team for MIS data.",
+              "Conducted audits for reports & NDC Reports.",
+              "Generated survey reports for best B school ranking.",
+              "Created and presented Monthly Placement Analysis reports.",
+              "Generated and distributed management reports in accurate and timely manner.",
+              "Provided support and maintenance to existing management information systems (MIS).",
+              "Provided recommendations to update current MIS to improve reporting efficiency and consistency."
+            ],
+          },
+        ],
+        education: [
+          {
+            institution: "ITM Group of Institutions",
+            degree: "Master of Business Administration - MBA, Finance",
+            duration: "2013 - 2015",
+          },
+          {
+            institution: "University of Mumbai",
+            degree: "Master of Business Administration - MBA",
+            duration: "",
+          },
+          {
+            institution: "Changu Kana Thakur Institute Of Management Studies And Research",
+            degree: "Bachelor of Commerce - BCom, Business/Commerce",
+            duration: "2009 - 2012",
+          },
+        ],
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(initializeAfterLoad, 800);
+      });
+
+      function initializeAfterLoad() {
+        document.getElementById("loading-screen").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("loading-screen").style.display = "none";
+        }, 300);
+
+        populatePortfolioData();
+        initializeUI();
+      }
+
+      function populatePortfolioData() {
+        const data = portfolioData;
+
+        // Personal Info
+        document.getElementById("nav-name").innerHTML = `<a href="#cvBody">${data.personalInfo.name}</a>`;
+        document.getElementById("nav-title").textContent = "Data Analyst";
+        document.getElementById("hero-name").textContent = data.personalInfo.name;
+        document.getElementById("hero-title").textContent = data.personalInfo.title;
+        document.getElementById("hero-location").querySelector("span").textContent = data.personalInfo.location;
+        document.getElementById("summary").textContent = data.summary;
+        
+        // Clickable About Me links
+        document.getElementById("email").innerHTML = `<a href="mailto:${data.personalInfo.contact.email}" class="hover:underline hover:text-mscolor-light transition">${data.personalInfo.contact.email}</a>`;
+        document.getElementById("phone").textContent = data.personalInfo.contact.phone;
+        document.getElementById("location").textContent = data.personalInfo.location;
+        document.getElementById("linkedin").innerHTML = `<a href="https://${data.personalInfo.contact.linkedin}" target="_blank" class="hover:underline hover:text-mscolor-light transition">${data.personalInfo.contact.linkedin}</a>`;
+
+        document.getElementById("linkedin-link").href = "https://" + data.personalInfo.contact.linkedin;
+        document.getElementById("footer-name").textContent = data.personalInfo.name;
+        document.getElementById("footer-title").textContent = "Data Analyst";
+        document.getElementById("contact-email").innerHTML = `<a href="mailto:${data.personalInfo.contact.email}" class="hover:underline">${data.personalInfo.contact.email}</a>`;
+        document.getElementById("contact-phone").textContent = data.personalInfo.contact.phone;
+        document.getElementById("contact-location").textContent = data.personalInfo.location;
+        document.getElementById("contact-linkedin").innerHTML = `<a href="https://${data.personalInfo.contact.linkedin}" target="_blank" class="hover:underline">${data.personalInfo.contact.linkedin}</a>`;
+        document.getElementById("linkedin-footer-link").href = "https://" + data.personalInfo.contact.linkedin;
+        document.getElementById("email-link").href = "mailto:" + data.personalInfo.contact.email;
+        document.getElementById("phone-link").href = "tel:" + data.personalInfo.contact.phone;
+        
+        if(data.personalInfo.contact.phone === "Not Provided") {
+            document.getElementById("phone").parentElement.style.display = "none";
+            document.getElementById("contact-phone").parentElement.parentElement.style.display = "none";
+            document.getElementById("phone-link").style.display = "none";
+        }
+
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        // Top Skills
+        const topSkillsContainer = document.getElementById("top-skills");
+        topSkillsContainer.innerHTML = "";
+        [...new Set(data.skills.topSkills)].forEach(skill => {
+          if (skill && skill.trim() !== "") {
+            const skillElement = document.createElement("div");
+            skillElement.className = "bg-mscolor/10 text-mscolor-light px-4 py-2 rounded-full font-medium text-sm skill-pill";
+            skillElement.textContent = skill;
+            topSkillsContainer.appendChild(skillElement);
+          }
+        });
+        
+        // Work Experience
+        const experienceContainer = document.getElementById("experience-container");
+        experienceContainer.innerHTML = "";
+        data.workExperience.forEach(job => {
+          const jobElement = document.createElement("div");
+          jobElement.className = "experience-item bg-msdark-DEFAULT rounded-lg shadow-md overflow-hidden";
+          let responsibilitiesHTML = job.responsibilities.map(resp => `<li class="mb-2 flex items-start"><i data-lucide="check" class="w-5 h-5 text-mscolor-light mr-2 mt-0.5 flex-shrink-0"></i><span>${resp}</span></li>`).join('');
+          jobElement.innerHTML = `<div class="bg-mscolor-dark text-white p-4 flex items-center"><div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-4"><i data-lucide="briefcase" class="w-5 h-5"></i></div><div><h3 class="text-xl font-bold">${job.position}</h3><p>${job.company}</p></div></div><div class="p-6"><p class="text-gray-400 mb-4 flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2"></i>${job.duration}</p><p class="text-gray-400 mb-6 flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>${job.location}</p><h4 class="font-semibold mb-3 text-gray-200">Responsibilities:</h4><ul class="space-y-1 text-gray-300">${responsibilitiesHTML}</ul></div>`;
+          experienceContainer.appendChild(jobElement);
+        });
+
+        // Education
+        const educationContainer = document.getElementById("education-container");
+        educationContainer.innerHTML = "";
+        data.education.forEach(edu => {
+          const eduElement = document.createElement("div");
+          eduElement.className = "bg-msdark-dark p-6 rounded-lg shadow-md";
+          eduElement.innerHTML = `<div class="flex items-start"><div class="mr-4 mt-1"><i data-lucide="graduation-cap" class="w-8 h-8 text-mscolor-light"></i></div><div><h3 class="text-lg font-bold text-gray-200">${edu.institution}</h3><p class="text-gray-300 mb-1">${edu.degree}</p><p class="text-gray-400 text-sm">${edu.duration}</p></div></div>`;
+          educationContainer.appendChild(eduElement);
+        });
+
+        // Certifications & Awards
+        const certContainer = document.getElementById("certifications-container");
+        certContainer.innerHTML = data.certifications.length > 0 
+            ? data.certifications.map(cert => `<div class="py-3 border-b border-msdark-light last:border-0"><div class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-mscolor-light mr-3 mt-0.5"></i><span class="text-gray-300">${cert}</span></div></div>`).join('')
+            : `<p class="text-gray-500">No certifications listed.</p>`;
+        
+        const awardsContainer = document.getElementById("awards-container");
+        awardsContainer.innerHTML = data.awards.length > 0
+            ? data.awards.map(award => `<div class="py-3 border-b border-msdark-light last:border-0"><div class="flex items-start"><i data-lucide="award" class="w-5 h-5 text-mscolor-light mr-3 mt-0.5"></i><span class="text-gray-300">${award}</span></div></div>`).join('')
+            : `<p class="text-gray-500">No awards listed.</p>`;
+        
+        lucide.createIcons();
+      }
+
+      function initializeUI() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          menuIcon.setAttribute("data-lucide", mobileMenu.classList.contains("hidden") ? "menu" : "x");
+          lucide.createIcons();
+        });
+
+        document.querySelectorAll(".mobile-nav-link").forEach(link => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            menuIcon.setAttribute("data-lucide", "menu");
+            lucide.createIcons();
+          });
+        });
+
+        window.addEventListener("scroll", () => {
+          const navbar = document.getElementById("navbar");
+          if (window.scrollY > 50) {
+            navbar.classList.add("py-2");
+            navbar.classList.remove("py-4");
+          } else {
+            navbar.classList.add("py-4");
+            navbar.classList.remove("py-2");
+          }
+        });
+
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach(section => {
+            if (window.scrollY >= section.offsetTop - 100) {
+              current = section.getAttribute("id");
+            }
+          });
+          navLinks.forEach(link => {
+            link.classList.remove("text-mscolor-light", "font-semibold");
+            link.classList.add("text-gray-300");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("text-mscolor-light", "font-semibold");
+            }
+          });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute("href"));
+            if (targetElement) {
+              window.scrollTo({ top: targetElement.offsetTop - 80, behavior: "smooth" });
+            }
+          });
+        });
+
+        // The form submission logic is removed as it will be handled by Formspree
+      }
+    </script>
+  </body>
+</html>
